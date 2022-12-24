@@ -1,11 +1,29 @@
-body{
-    display: flex
-}
 
-#container {
-    display: flex
-}
-
+/* CSS for Routines */
 #nav-bar {
-    font-size: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: 4px solid #788b7a
+}
+
+#routine-listings {
+    width: 20%;
+    margin: 10px;
+}
+
+#routine-listing {
+    margin: 10px;
+    border: 4px solid black;
+}
+#routine-name {
+    font-size: 20px;
+}
+
+#routine-goal {
+    
+}
+
+#routine-username {
+
 }
