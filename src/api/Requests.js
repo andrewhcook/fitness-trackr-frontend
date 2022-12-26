@@ -45,3 +45,61 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
       }
     }
   }
+
+
+  export const registerUser = async (username, password) => {
+    try {
+      const {user, message, token, error} = await apiCall('users/register', {token: null, method: "Post", body: { username: username,
+      password: password}} );
+      if (!error) {
+    //    console.log(username, data.token)
+        return {
+          error: null,
+          token: token,
+          mesage: message,
+          user: user
+        }
+      } else {
+       // console.log("no success in registerUser()", error);
+        return {
+          error: error.message,
+          token: null,
+          message: null
+        }
+      }
+    } catch (error){
+      console.error(error);
+      return {
+        error: error.message,
+        token: null,
+        message: null,
+        user: null
+      }
+    }
+  }
+
+  export const logInUser = async (username, password) => {
+    
+      const {user, message, token, error} = await apiCall('users/login', {token: null, method: "Post", body: {username: username,
+      password: password}} );
+      if (!error) {
+       // console.log(username, data.token)
+        return {
+          error: null,
+          token: token,
+          mesage: message,
+          user: user
+        }
+      } else {
+        alert("Incorrect User Credentials");
+       // console.log("no success in registerUser()", error);
+        return {
+          error: error.message,
+          token: null,
+          message: null,
+          user: null
+        }
+      }
+    
+    }
+  

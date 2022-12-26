@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import { fetchRoutines } from './api/Requests';
-import {Home, LoginRegister, Routines, Activities, MyRoutines} from './Components'
+import { fetchRoutines, fetchUser} from './api/Requests';
+import {Home, LoginRegister, Routines, Activities, MyRoutines, Logout} from './Components'
 
 const App = () => {
   
@@ -11,7 +11,8 @@ const App = () => {
       );
 
       const [routines, setRoutines] = useState([]);
-
+      const [user, setUser] = useState({});
+      
       useEffect(()=> {
         const getRoutines = async (token) => {
           const {error, routines} = await fetchRoutines(token);
@@ -21,7 +22,8 @@ const App = () => {
           setRoutines(routines);
         }
         getRoutines(token);
-      }, [])
+      }, [token]);
+
 
         return (
         
@@ -34,16 +36,16 @@ const App = () => {
     
     <Link to = "/Activities">Activities</Link>
     { token ? <Link to = "/MyRoutines">My Routines</Link> : null}
-    {!token ? <Link to = "/LoginRegister">Login/Register</Link> : <Logout> setToken = {setToken} </Logout>}
+    {!token ? <Link to = "/LoginRegister">Login/Register</Link> : <Logout setToken = {setToken}> </Logout>}
     </div>
     <div id = "main-section">
           <Route path = "/Home">
             {token ? <> <Home guest = {user}></Home> </> : null }
           </Route>
-          <Route path = "/LoginRegister"><LoginRegister></LoginRegister></Route>
+          <Route path = "/LoginRegister"><LoginRegister token = {token} setToken = {setToken}></LoginRegister></Route>
           <Route path = "/Routines"> <Routines routines = {routines}></Routines></Route>
           <Route path = "/Activities"> <Activities></Activities></Route>
-          {token ? <Route path = "MyRoutines"> <MyRoutines></MyRoutines></Route> : null}
+          {token ? <Route path = "MyRoutines"> <MyRoutines token = {token} user = {user} routines = {routines} setRoutines = {setRoutines}></MyRoutines></Route> : null}
          
   </div>
   </div>
