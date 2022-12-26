@@ -68,7 +68,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         }
       }
     } catch (error){
-      console.error(error);
+      alert(error);
       return {
         error: error.message,
         token: null,
