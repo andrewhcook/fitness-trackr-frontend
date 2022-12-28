@@ -26,7 +26,7 @@ useEffect(() => {
 getRoutinesByUsername();
 }, [])
 
-
+console.log ("newRoutines", newRoutines)
 return (
  
     <div id="myroutines">
