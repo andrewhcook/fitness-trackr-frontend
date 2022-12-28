@@ -9,12 +9,7 @@ const App = () => {
     const [token, setToken] = useState(
         window.localStorage.getItem("token") || null
       );
-      const [username, setUsername] = useState("");
-      const [user, setUser] = useState({});
-      
-      
-
-        return (
+      return (
         
     <BrowserRouter>
 
@@ -29,12 +24,12 @@ const App = () => {
     </div>
     <div id = "main-section">
           <Route path = "/Home">
-            {token ? <> <Home guest = {user}></Home> </> : null }
+            {token ? <> <Home></Home> </> : null }
           </Route>
-          <Route path = "/LoginRegister"><LoginRegister token = {token} setToken = {setToken} setUsername = {setUsername} username = {username}></LoginRegister></Route>
+          <Route path = "/LoginRegister"><LoginRegister setToken = {setToken}></LoginRegister></Route>
           <Route path = "/Routines"> <Routines ></Routines></Route>
           <Route path = "/Activities"> <Activities></Activities></Route>
-          <Route path = "/MyRoutines"> <MyRoutines token = {token} username = {username} user = {user} ></MyRoutines></Route>
+          <Route path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
          
   </div>
   </div>

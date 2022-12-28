@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { registerUser, logInUser } from '../api/Requests';
+
 const LoginRegister = (props) => {
     const setToken = props.setToken;
     const [username, setUsername] = useState("");

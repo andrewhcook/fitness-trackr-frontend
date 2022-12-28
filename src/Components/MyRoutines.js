@@ -6,7 +6,7 @@ import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
 
 const MyRoutines =(props) => {
 const [userRoutines, setUserRoutines] = useState([]);
-const { token, setRoutines } = props
+const { token } = props
 //const navigate = useNavigate()
 
 useEffect(() => {
