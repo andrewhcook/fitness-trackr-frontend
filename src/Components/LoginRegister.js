@@ -10,7 +10,7 @@ const LoginRegister = (props) => {
     const onSubmitHandler = async (event) => {
         //console.log("onSubmitHandler() called");
         event.preventDefault();
-        const {error, token, message} = await registerUser(username, password);
+        const {error, token, message, user} = await registerUser(username, password);
         setToken(token);
         window.localStorage.setItem('token', token);
     }

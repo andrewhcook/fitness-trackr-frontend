@@ -9,21 +9,10 @@ const App = () => {
     const [token, setToken] = useState(
         window.localStorage.getItem("token") || null
       );
-
-      const [routines, setRoutines] = useState([]);
+      const [username, setUsername] = useState("");
       const [user, setUser] = useState({});
       
-      useEffect(()=> {
-        const getRoutines = async (token) => {
-          const {error, routines} = await fetchRoutines(token);
-          if (error) {
-            console.error(error);
-          }
-          setRoutines(routines);
-        }
-        getRoutines(token);
-      }, [token]);
-
+      
 
         return (
         
@@ -42,10 +31,10 @@ const App = () => {
           <Route path = "/Home">
             {token ? <> <Home guest = {user}></Home> </> : null }
           </Route>
-          <Route path = "/LoginRegister"><LoginRegister token = {token} setToken = {setToken}></LoginRegister></Route>
-          <Route path = "/Routines"> <Routines routines = {routines}></Routines></Route>
+          <Route path = "/LoginRegister"><LoginRegister token = {token} setToken = {setToken} setUsername = {setUsername} username = {username}></LoginRegister></Route>
+          <Route path = "/Routines"> <Routines ></Routines></Route>
           <Route path = "/Activities"> <Activities></Activities></Route>
-          {token ? <Route path = "MyRoutines"> <MyRoutines token = {token} user = {user} routines = {routines} setRoutines = {setRoutines}></MyRoutines></Route> : null}
+          <Route path = "/MyRoutines"> <MyRoutines token = {token} username = {username} user = {user} ></MyRoutines></Route>
          
   </div>
   </div>

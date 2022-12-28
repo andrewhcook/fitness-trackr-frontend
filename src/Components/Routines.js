@@ -1,3 +1,7 @@
+import React, { useState,useEffect } from "react";
+import { useParams, Link } from 'react-router-dom'
+import { fetchRoutines } from "../api/Requests.js"
+
 const Listing = (props) => {
     const routine = props.routine;
     return (<div id = "routine-listing"><div id = "routine-name">{routine.name}</div>
@@ -16,9 +20,23 @@ const ActivityList = (props) => {
 }
 
 const Routines = (props) => {
+    
+    const [routines, setRoutines] = useState([]);
+    useEffect(()=> {
+        const getRoutines = async () => {
+          try{
+          const {routines} = await fetchRoutines();
+          setRoutines(routines);
+          } catch(error) {
+            console.error(error);
+          }
+        }
+
+        getRoutines();
+      }, []);
+
     //SHOW: ROUTINE NAME, GOAL and CREATOR's USERNAME
     // A LIST OF ACTIVITIES FOR THE ROUTINE, including thier name, description and/or count 
-    const routines = props.routines;
     return (<><div id = "routine-listings">{routines.map((routine)=> {return <Listing routine = {routine}></Listing>})}</div></>)
 
 }
