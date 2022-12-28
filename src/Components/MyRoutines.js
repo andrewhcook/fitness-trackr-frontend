@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from "react";
-import { useParams, Link } from 'react-router-dom'
+//import { useParams, Link } from 'react-router-dom'
 import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
 
 
 
 const MyRoutines =(props) => {
-const [userRoutines, setUserRoutines] = useState([]);
+const [myroutines, setMyRoutines] = useState([]);
 const { token } = props
 //const navigate = useNavigate()
 
@@ -13,58 +13,30 @@ useEffect(() => {
   const getRoutinesByUsername = async () => {
   try {
         const {username} = await getUser(token);
-        console.log(username);
-      const newRoutines = await fetchRoutinesByUsername(token, username);
+        console.log("username", username);
+      const routines = await fetchRoutinesByUsername(token, username);
       
-      setUserRoutines(newRoutines);
+      setMyRoutines(routines);
      }
 
   catch (error) {
     console.error(error);
       }
 }
-getRoutinesByUsername();
+getRoutinesByUsername(username);
 }, [])
 
-console.log ("newRoutines", newRoutines)
-return (
- 
-    <div id="myroutines">
-        <h2>HELLO WORLD</h2>
-        <div className="routineheadercontainer">
-            <div className="routineheaderbox">
-               
-                 <button id="addroutine" ><Link to="/routine/add" id="addlink">ADD ROUTINE</Link></button>
-             </div>
-        </div>
+console.log ("myRoutines", myroutines)
 
-
-      {userRoutines.map((routine) => {
-    
-        return (
-            
-         <div id= "card" key = {routine.id}>   
-        {//routine.creatorId===users.id? 
-            <>
-        <div id="outercard">  
-        <div id="innercard">
-        <div> Name: {routine.name}</div>
-        <div> Goal: {routine.goal}</div>
-       
-       
-        </div> 
-        </div>
-        </> //: null
-      }
-        </div>
-        
-        )})}
-    
-    </div>
-);
-
-
-
+return (<><div id = "myroutine-listings">{myroutines.map((routine)=> 
+  {return <MyRoutineListing routine = {routine}></MyRoutineListing>})}</div></>)
+// const myRoutineList = (props) => {
+//   const routines = props.routines;
+//   console.log("props.routines", props.routines);
+//   return (<div id = "routine-listing">
+//   <div id = "routine-name"> My Routine Name: {routine.name}</div>
+//   <div id = "activity-goal"> Goal: {routine.goal}</div>
+//   </div>)
 }
 
 
