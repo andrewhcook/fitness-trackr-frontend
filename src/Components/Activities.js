@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { getActivities, postActivity } from "../api/Requests";
+import { getActivities, addActivity } from "../api/Requests";
 
 
 const Activities = (props) => {
@@ -43,7 +43,7 @@ const Form = (props) => {
     }, [name, description])
     const onSubmitHandler = async (event) => {
         event.preventDefault();
-        postActivity(token, newActivity);
+        addActivity(token, newActivity);
     }
     return (<form id="create-activity-form" onSubmit={ async (event) => {
        
