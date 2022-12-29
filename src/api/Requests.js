@@ -27,7 +27,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
     }
       const response = await fetch(`${BASEURL}/${endpoint}`, options);
       const result = await response.json();
-      //console.log(result);
+      console.log(result);
       return result;
   }
 
@@ -123,6 +123,13 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
       }
 
       export const getActivities = async(token) => {
-        const activities = apiCall("activities", {method: "GET"});
+        const activities = await apiCall("activities", {method: "GET"});
         return activities
+      }
+
+      export const postActivity = async(token, newActivity) => {
+        const {name, description} = newActivity;
+        console.log(token);
+        const activity = await apiCall(`activities`, {token: token, method: "POST", body: {name: name, description: description}});
+        return activity;
       }

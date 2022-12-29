@@ -12,6 +12,7 @@ const LoginRegister = (props) => {
         //console.log("onSubmitHandler() called");
         event.preventDefault();
         const {error, token, message, user} = await registerUser(username, password);
+        
         setToken(token);
         window.localStorage.setItem('token', token);
     }
@@ -20,6 +21,7 @@ const LoginRegister = (props) => {
         // console.log("onSubmitHandler() in Login called");
          event.preventDefault();
          const {error, token, message} = await logInUser(loginUsername, loginPassword);
+      
          setToken(token);
          window.localStorage.setItem('token', token);
      }
