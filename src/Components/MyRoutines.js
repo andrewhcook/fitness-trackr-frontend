@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-//import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
 
 
@@ -13,9 +13,9 @@ useEffect(() => {
   const getRoutinesByUsername = async () => {
   try {
         const {username} = await getUser(token);
-        console.log("username", username);
+        console.log("username UseEffect MyRoutines", username);
       const routines = await fetchRoutinesByUsername(token, username);
-      
+      console.log ("routines useEffect MyRoutines", routines)
       setMyRoutines(routines);
      }
 
@@ -23,20 +23,25 @@ useEffect(() => {
     console.error(error);
       }
 }
-getRoutinesByUsername(username);
+getRoutinesByUsername();
 }, [])
 
 console.log ("myRoutines", myroutines)
 
-return (<><div id = "myroutine-listings">{myroutines.map((routine)=> 
-  {return <MyRoutineListing routine = {routine}></MyRoutineListing>})}</div></>)
-// const myRoutineList = (props) => {
-//   const routines = props.routines;
-//   console.log("props.routines", props.routines);
-//   return (<div id = "routine-listing">
-//   <div id = "routine-name"> My Routine Name: {routine.name}</div>
-//   <div id = "activity-goal"> Goal: {routine.goal}</div>
-//   </div>)
+return (<>
+<div id= "myroutine-header">
+<div id= "myroutine-title">My Routines</div>
+</div>
+<div id= "myroutine-options">
+<div id = "create-routine"> <Link to = "/CreateRoutine">Create New Routine</Link></div>
+<div id = "edit-routine"> <Link to = "/EditRoutine">Edit Routine</Link></div>
+<div id = "delete-routine"> <Link to = "/DeleteRoutine">Delete Routine</Link></div>
+</div>
+
+<div id = "myroutine-listings">{myroutines.map((routine)=> 
+  {return <MyRoutineListing routine = {routine}></MyRoutineListing>})}
+</div></>)
+
 }
 
 

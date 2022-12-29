@@ -27,7 +27,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
     }
       const response = await fetch(`${BASEURL}/${endpoint}`, options);
       const result = await response.json();
-      console.log(result);
+      //console.log(result);
       return result;
   }
 
@@ -105,10 +105,10 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
   
 
     export async function fetchRoutinesByUsername(token, username){
-
+      //console.log ("params fetchRoutinesByUsername", token, username)
       try{
       const result = await apiCall(`users/${username}/routines`, {token:token, method:"GET"});
-        
+        console.log( "result fetchRoutinesByUsername", result)
           return result;
       } catch(error) {
         console.error( "There was an error in fetchRoutinesByUsername apiCall")
@@ -118,6 +118,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
       export const getUser = async (token) => {
         console.log(token);
         const {id, username} = await apiCall("users/me", {token: token, method: "GET"})
+        console.log ("id, username from getUser apiCall", id, username)
         return {id, username}
       }
 
