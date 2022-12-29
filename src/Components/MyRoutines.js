@@ -33,9 +33,9 @@ return (<>
 <div id= "myroutine-title">My Routines</div>
 </div>
 <div id= "myroutine-options">
-<div id = "create-routine"> <Link to = "/CreateRoutine">Create New Routine</Link></div>
-<div id = "edit-routine"> <Link to = "/EditRoutine">Edit Routine</Link></div>
-<div id = "delete-routine"> <Link to = "/DeleteRoutine">Delete Routine</Link></div>
+<div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
+<div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
+<div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div>
 </div>
 
 <div id = "myroutine-listings">{myroutines.map((routine)=> 

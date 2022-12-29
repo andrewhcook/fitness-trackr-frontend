@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState }from "react";
 import {addRoutine} from '../api/Requests.js'
 
 
 const CreateRoutine = (props) => {
+    const [name, setName] = useState("")
+    const [goal, setGoal] = useState("")
+    const [isPublic, setIsPublic] = useState(false)
 
     const newRoutine = async () => {
         try {
@@ -17,86 +20,104 @@ const CreateRoutine = (props) => {
             }
       }
 
+      const handleSetName = (event) => {
+        event.preventDefault();
+        const inputElement = event.target;
+        const newValue = inputElement.value;
+        setName(newValue);
+        }
+                        
+        const handleSetGoal = (event) => {
+        event.preventDefault();
+        const inputElement = event.target;
+        const newValue = inputElement.value;
+        setGoal(newValue);
+        }
+
+        const handleSetIsPublic = (event) => {
+          event.preventDefault();
+          const inputElement = event.target;
+          const newValue = inputElement.value;
+          setIsPublic(newValue);
+          }
+        
+        const handleSubmit = async (event) => {
+        event.preventDefault();
+        
+        const routine = {name: name,
+        goal: goal}
+        
+        try{
+        const data = await addRoutine(token, username)
+        console.log ("token", token)
+        console.log (data)
+        }
+        catch (error) {
+        console.log (error)
+        }
+        }
 
 
-//       return (
-//         <div id="addpostcontainer">
-//         <div id="addPost">
 
-//             <>
-//            <form id="submitPost" onSubmit={async (event) => {
-//            handleSubmit(event)
-//             }}>
-//             <div id="addPostTitle">
-//                Create a Post
-//            </div>
-//           <fieldset id = "inputs">
-//          <label htmlFor="item"></label>
-//          <input 
-//            id="enteritem" 
-//            type="text" 
-//            placeholder="Enter: Name of item for sale" 
-//            value={item} 
-//            autoComplete="off"
-//            required
-//            onChange={handleSetItem}/>
+      return (
+        <div id="addroutincontainer">
+        <div id="addroutine">
+
+            <>
+           <form id="submitRoutine" onSubmit={async (event) => {
+           handleSubmit(event)
+            }}>
+            <div id="addRoutineTitle">
+               Create a Routine
+           </div>
+     <fieldset id = "inputs">
+         <label htmlFor="name"></label>
+         <input 
+           id="enterroutinename" 
+           type="text" 
+           placeholder="Enter: Name of Routine" 
+           value={name} 
+           autoComplete="off"
+           required
+           onChange={handleSetName}/>
        
-//          <label htmlFor="description"></label>
+         <label htmlFor="goal"></label>
          
-//          <textarea 
-//            id="enterdescription" 
-//            type="text"
-//            rows='2'
-//            placeholder="Description of item" 
-//            value={description}
-//            required
-//            onChange={handleSetDescription}/>
-           
-
-// <label htmlFor="price"></label>
-//          <input 
-//            id="enterprice" 
-//            type="text" 
-//            placeholder="Price of item" 
-//            value={price}
-//            autoComplete="off"
-//            required
-//            onChange={handleSetPrice}/>
-
-// <label htmlFor="location"></label>
-//          <input 
-//            id="enterlocation" 
-//            type="text" 
-//            placeholder="Location" 
-//            value={location}
-//            autoComplete="off"
-//            required
-//            onChange={handleSetLocation}/>
-// <span> Will deliver?&emsp;
-
-// <label htmlFor="willdeliver"></label>
-//          <input 
-//            id="enterwilldeliver" 
-//            type="checkbox" 
-           
-//            value={willdeliver}
-           
-//            onChange={handleWilldeliver}
-//            />
-// </span>
-
-
-
-//        </fieldset>
+         <textarea 
+           id="enterroutinegoal" 
+           type="text"
+           rows='1'
+           placeholder="Goal of Routine" 
+           value={goal}
+           required
+           onChange={handleSetGoal}/>
+        
+        <span> Make Routine Public?&emsp;
+        <label htmlFor="Make Routine Public?"></label>
+        <input 
+        id="enterpublic" 
+        type="checkbox" 
+        name="check" 
       
-//        <button id="registerButton">Submit</button>
-//          </form>
+        value={isPublic}
+        
+        onChange={handleSetIsPublic}
+        />
+        </span>
 
-//          </>
-//         </div>
-//         </div>
+
+
+
+     </fieldset>
+      
+       <button id="registerButton">Submit</button>
+         </form>
+
+         </>
+        </div>
+        </div>
          
-//        )
+       )
 
 }
 
