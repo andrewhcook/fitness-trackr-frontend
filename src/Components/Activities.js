@@ -1,7 +1,11 @@
 import { useEffect,useState } from "react";
-import { getActivities } from "../api/Requests";
+import { getActivities, postActivity } from "../api/Requests";
+
 
 const Activities = (props) => {
+    console.log(props);
+    const token = props.token;
+    console.log(token);
     const [activities, setActivities] = useState([]);
     useEffect(()=> {
         const loadActivities = async() => {
@@ -12,7 +16,9 @@ const Activities = (props) => {
             
     }, [])
     return (
-        <div id = "activity-listings">{ activities.map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
+       <> <div id = "activity-listings">{ activities.map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
+       {token ? <div><Form token = {token}></Form> </div>: null}
+       </>
     )
 }
 
@@ -27,6 +33,54 @@ const ActivityList = (props) => {
 
 const Form = (props) => {
 
+    const token = props.token;
+    const [name, setName]= useState("");
+    const [description, setDescription] = useState("");
+    const [newActivity, setNewActivity] = useState({});
+    useEffect(()=> {
+        setNewActivity({name: name, description: description})
+   
+    }, [name, description])
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
+        postActivity(token, newActivity);
+    }
+    return (<form id="create-activity-form" onSubmit={ async (event) => {
+       
+        onSubmitHandler(event);
+        }}>
+        <h1>Create Activity Form</h1>
+
+        <div className="field">
+            <label>Activity Title</label>
+            <input
+            type = "text"
+            label = "Title"
+            placeholder="Title"
+            value = {name}
+            required
+            onChange = { (event) => {
+                setName(event.target.value);}}
+            />
+            
+        </div>
+        
+        <div className="field">
+            <label>Description</label>
+            <input
+            type = "text"
+            label = "Location"
+            value = {description}
+            placeholder="Description..."
+            required
+            onChange = {(event) => {setDescription(event.target.value)}}
+            />
+            
+        </div>
+        <button className="submit-form" type = "submit" value = "Submit">Submit</button>
+    </form>);
+
 }
+
 
 export default Activities

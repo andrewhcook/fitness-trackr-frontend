@@ -27,7 +27,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
     }
       const response = await fetch(`${BASEURL}/${endpoint}`, options);
       const result = await response.json();
-      //console.log(result);
+      console.log(result);
       return result;
   }
 
@@ -123,10 +123,12 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
       }
 
       export const getActivities = async(token) => {
-        const activities = apiCall("activities", {method: "GET"});
+        const activities = await apiCall("activities", {method: "GET"});
         return activities
       }
 
+
+      
 
       export async function addActivity(token, parameters = {}){
         const {name, description} = parameters
