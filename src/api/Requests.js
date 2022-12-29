@@ -127,9 +127,219 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         return activities
       }
 
-      export const postActivity = async(token, newActivity) => {
-        const {name, description} = newActivity;
-        console.log(token);
-        const activity = await apiCall(`activities`, {token: token, method: "POST", body: {name: name, description: description}});
-        return activity;
+
+      
+
+      export async function addActivity(token, parameters = {}){
+        const {name, description} = parameters
+        console.log ("parameters addActivity apiCall", parameters)
+        
+        try{
+        const response = await apiCall('activities', {
+          token: token,
+          method: "POST",
+          body: 
+            {
+            name: name,
+            description: description
+            }
+          });
+        
+        const data = await response.json();
+        return data;
       }
+        catch(error) {
+          console.error ("There was an error in addActivity apiCall")
+        }
+    
+        }
+    
+    
+      export async function editActivity (activityId, parameters = {}){
+          const {name, description} = parameters
+          console.log ("parameters", parameters)
+        try{
+        const response = await apiCall(`activities/:${activityId}`, {
+          method: "PATCH",
+          body: {
+            name: name,
+            description: description
+          }
+          });
+        
+        const data = await response.json();
+        return data;
+        
+        } catch(error) {
+          console.error ("There was an error in editActivity apiCall")
+        }
+    
+        }
+    
+    
+      export async function fetchRoutinesByActivityId(token, activityId) {
+        
+        try{
+          const result = await apiCall(`activities/:${activityId}/routines`, {token:token, method:"GET"});
+            
+          const data= await response.json()
+              return data;
+          } catch(error) {
+            console.error( "There was an error in fetchRoutinesByActivity apiCall")
+          }
+          }
+    
+      // export const fetchRoutines = async (token)=> {
+      //   try{
+      //     const response = await apiCall('routines', {token:token, method:"GET"})
+          
+         
+      //    // const data = await response.json();
+      //     console.log ("fetchRoutines response data", response)
+      //     return response;
+          
+      //   }
+      //     catch(error) {
+      //       console.error ("There was an error in fetchRoutines apiCall", error)
+      //     }
+          
+      //   }
+      
+    
+      export async function addRoutine(token, parameters = {}){
+        const {name, goal, isPublic} = parameters
+        console.log ("parameters addRoutine apiCall", parameters)
+        
+        try{
+        const response = await apiCall('routines', {
+          token: token,
+          method: "POST",
+          body: 
+            {
+            name: name,
+            goal: goal,
+            isPublic: isPublic
+            }
+          });
+        
+        const data = await response.json();
+        return data;
+      }
+        catch(error) {
+          console.error ("There was an error in addRoutine apiCall")
+        }
+    
+        }
+    
+    
+      export async function editRoutineByRoutineId(routineId, parameters = {}){
+        const {name, goal, isPublic} = parameters
+        console.log ("parameters", parameters)
+      try{
+      const response = await apiCall(`routines/:${routineId}`, {
+        token: token,
+        method: "PATCH",
+        body: {
+          name: name,
+          goal: goal,
+          isPublic: isPublic
+        }
+        });
+      
+      const data = await response.json();
+      return data;
+      
+      } catch(error) {
+        console.error ("There was an error in editRoutineByRoutineId apiCall")
+      }
+    
+      }
+    
+      export async function deleteRoutineByRoutineId (token, routineId){
+        
+        
+        try{
+          const response = await apiCall(`routines/:${routineId}`, {
+          token: token,
+          method: "DELETE",
+          });
+        
+    const data = await response.json();
+        return data;
+        
+      }
+        catch(error) {
+          console.error ("There was an error in deleteRoutineByRoutineId")
+        }
+      
+        }
+    
+    
+        export async function addActivityToRoutine(token, parameters = {}, routineId){
+          const {activityId, count, duration} = parameters
+          console.log ("parameters addRoutine apiCall", parameters)
+          
+          try{
+          const response = await apiCall(`routines/:${routineId}/activities`, {
+            token: token,
+            method: "POST",
+            body: 
+              {
+              activityId: activityId,
+              count: count,
+              duration: duration
+              }
+            });
+          
+          const data = await response.json();
+          return data;
+        }
+          catch(error) {
+            console.error ("There was an error in addActivityToRoutine apiCall")
+          }
+      
+          }
+    
+        export async function editRoutineActivityByRoutineActivityId (routineActivityId, parameters = {}){
+          const {count, duration} = parameters
+          console.log ("parameters", parameters)
+        try{
+        const response = await apiCall(`routines_activities/:${routineActivityId}`, {
+          token: token,
+          method: "PATCH",
+          body: {
+            count: count,
+            duration: duration
+          }
+          });
+        
+        const data = await response.json();
+        return data;
+        
+        } catch(error) {
+          console.error ("There was an error in editRoutineActivityByRoutineActivityId apiCall")
+        }
+      
+        }
+    
+        export async function deleteRoutineActivityByRoutineActivityId (token, routineActivityId){
+        
+        
+          try{
+            const response = await apiCall(`routines/:${routineActivityId}`, {
+            token: token,
+            method: "DELETE",
+            });
+          
+      const data = await response.json();
+          return data;
+          
+        }
+          catch(error) {
+            console.error ("There was an error in deleteRoutineActivityByRoutineActivityId")
+          }
+        
+          }
+      
+    
+      

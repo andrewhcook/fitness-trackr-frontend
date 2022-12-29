@@ -23,6 +23,7 @@ const App = () => {
     {!token ? <Link to = "/LoginRegister">Login/Register</Link> : <Logout setToken = {setToken}> </Logout>}
     </div>
     <div id = "main-section">
+          
           <Route path = "/Home">
             {token ? <> <Home></Home> </> : null }
           </Route>
@@ -32,8 +33,8 @@ const App = () => {
           <Route path = "/MyRoutines/Create"> <CreateRoutine token = {token} ></CreateRoutine></Route>
           <Route path = "/MyRoutines/Edit"> <EditRoutine token = {token} ></EditRoutine></Route>
           <Route path = "/MyRoutines/Delete"> <DeleteRoutine token = {token} ></DeleteRoutine></Route>
-          <Route path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
-         
+          <Route exact path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
+          
   </div>
   </div>
   </BrowserRouter>
