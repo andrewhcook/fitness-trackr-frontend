@@ -187,21 +187,21 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
           }
           }
     
-      export const fetchRoutines = async (token)=> {
-        try{
-          const response = await apiCall('routines', {token:token, method:"GET"})
+      // export const fetchRoutines = async (token)=> {
+      //   try{
+      //     const response = await apiCall('routines', {token:token, method:"GET"})
           
          
-         // const data = await response.json();
-          console.log ("fetchRoutines response data", response)
-          return response;
+      //    // const data = await response.json();
+      //     console.log ("fetchRoutines response data", response)
+      //     return response;
           
-        }
-          catch(error) {
-            console.error ("There was an error in fetchRoutines apiCall", error)
-          }
+      //   }
+      //     catch(error) {
+      //       console.error ("There was an error in fetchRoutines apiCall", error)
+      //     }
           
-        }
+      //   }
       
     
       export async function addRoutine(token, parameters = {}){
