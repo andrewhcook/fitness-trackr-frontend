@@ -43,6 +43,7 @@
 }
 
 
+/* MyRoutine CSS */
 #myroutine-header{
     display: block;
     width: 200px;
@@ -64,6 +65,17 @@
     border: 4 px solid black;
     
 }
+
+#myroutineinnercard{
+    border: 2px solid black;
+
+}
+#deleteeditdiv{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    }
+
 /* Create Routine CSS */
 
 #submitRoutine{

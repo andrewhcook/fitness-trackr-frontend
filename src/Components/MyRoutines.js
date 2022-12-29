@@ -28,24 +28,52 @@ getRoutinesByUsername();
 
 console.log ("myRoutines", myroutines)
 
-return (<>
+return (
+<>
 <div id= "myroutine-header">
 <div id= "myroutine-title">My Routines</div>
 </div>
 <div id= "myroutine-options">
-<div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
-<div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
-<div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div>
+
+{/* <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
+<div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div> */}
 </div>
 
-<div id = "myroutine-listings">{myroutines.map((routine)=> 
-  {return <MyRoutineListing routine = {routine}></MyRoutineListing>})}
-</div></>)
 
-}
-
-
+{myroutines.map((routine) => {
+    
+        return (
+            
+         <div id= "routinediv" key = {routine.id}>   
+       
+            
+        <div id="myroutinecard">  
+        <div id="myroutineinnercard">
+        <div> Name: {routine.name}</div>
+        <div> Goal: {routine.goal}</div>
+        </div> 
+        <span id="deleteeditdiv">
+        <div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div>
+        <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
+        </span>
+        </div>
+       
+      
+        </div>
+         )
+    }
+    )
+    }
+    <div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
+     </> 
+)};
+    
+    
 export default MyRoutines
 
 
 
+/* <button id="deletemyroutine"
+        onClick={()=> handleDeleteClick(routine.id)}> DELETE ROUTINE</button> */
+        /* <button id="editmyroutine" 
+        onClick={()=> handleEditClick(post)}> EDIT ROUTINE</button> */

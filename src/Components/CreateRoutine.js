@@ -6,6 +6,7 @@ const CreateRoutine = (props) => {
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
     const [isPublic, setIsPublic] = useState(false)
+    const {token} = props
 
     const newRoutine = async () => {
         try {
@@ -51,12 +52,14 @@ const CreateRoutine = (props) => {
         event.preventDefault();
         
         const routine = {name: name,
-        goal: goal}
+        goal: goal,
+        isPublic: isPublic}
         
         try{
-        const data = await addRoutine(token, username)
+        const data = await addRoutine(token, routine)
         console.log ("token", token)
-        console.log (data)
+        console.log ("data from addRoutine",data)
+        return data
         }
         catch (error) {
         console.log (error)
