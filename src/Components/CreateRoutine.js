@@ -36,9 +36,15 @@ const CreateRoutine = (props) => {
 
         const handleSetIsPublic = (event) => {
           event.preventDefault();
+          console.log(isPublic)
+          const isChecked = document.getElementById('#enterpublic')
           const inputElement = event.target;
           const newValue = inputElement.value;
-          setIsPublic(newValue);
+          console.log ("checkValue",newValue)
+          if (newValue === "on"){
+            setIsPublic(true);
+          }
+          
           }
         
         const handleSubmit = async (event) => {
@@ -57,7 +63,7 @@ const CreateRoutine = (props) => {
         }
         }
 
-
+        console.log("isPublic",isPublic)
 
       return (
         <div id="addroutincontainer">
@@ -70,7 +76,7 @@ const CreateRoutine = (props) => {
             <div id="addRoutineTitle">
                Create a Routine
            </div>
-     <fieldset id = "inputs">
+     <fieldset id = "addroutineinputs">
          <label htmlFor="name"></label>
          <input 
            id="enterroutinename" 
@@ -87,7 +93,7 @@ const CreateRoutine = (props) => {
            id="enterroutinegoal" 
            type="text"
            rows='1'
-           placeholder="Goal of Routine" 
+           placeholder="Enter: Goal of Routine" 
            value={goal}
            required
            onChange={handleSetGoal}/>
@@ -99,7 +105,7 @@ const CreateRoutine = (props) => {
         type="checkbox" 
         name="check" 
       
-        value={isPublic}
+        //value={true}
         
         onChange={handleSetIsPublic}
         />
