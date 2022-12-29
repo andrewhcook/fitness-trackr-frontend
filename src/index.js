@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import { fetchRoutines, fetchUser} from './api/Requests';
-import {Home, LoginRegister, Routines, Activities, MyRoutines, Logout} from './Components'
+import {Home, LoginRegister, Routines, Activities, MyRoutines, Logout, CreateRoutine, EditRoutine, DeleteRoutine} from './Components'
 
 const App = () => {
   
