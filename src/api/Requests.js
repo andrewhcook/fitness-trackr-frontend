@@ -257,9 +257,9 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
     
       export async function deleteRoutineByRoutineId (token, routineId){
         
-        
+        console.log ("routineId at deleteRoutine apiCall", routineId)
         try{
-          const response = await apiCall(`routines/:${routineId}`, {
+          const response = await apiCall(`routines/${routineId}`, {
           token: token,
           method: "DELETE",
           });

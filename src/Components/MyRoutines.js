@@ -5,8 +5,6 @@ import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
 
 import DeleteRoutine from "./DeleteRoutine.js"
 
-console.log ("DeleteRoutine", DeleteRoutine)
-
 const MyRoutines =(props) => {
 
 const { path, url } = useRouteMatch();
