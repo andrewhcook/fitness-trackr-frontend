@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import {  useRouteMatch, useParams } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom'
 import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
+import EditRoutine from "./EditRoutine.js"
+import AddActivityToRoutine from "./AddActivityToRoutine.js"
 
 import DeleteRoutine from "./DeleteRoutine.js"
 
@@ -12,6 +14,9 @@ const { path, url } = useRouteMatch();
 console.log ("path", path, "url", url)
   
 const [myroutines, setMyRoutines] = useState([]);
+const [editRoutineId, setEditRoutineId] = useState ();
+const [addActivityId, setAddActivityId] = useState ();
+
 const { token } = props
 //const navigate = useNavigate()
 
@@ -58,12 +63,17 @@ return (
         <div> Name: {routine.name}</div>
         <div> Goal: {routine.goal}</div>
         <div> Activities: {routine.activities}</div>
+        {editRoutineId === routine.id && <EditRoutine routine = {routine} />}
+        {addActivityId === routine.id && <AddActivityToRoutine routine = {routine} />}
         </div> 
         <span id="deleteeditdiv">
         <div id = "delete-routine"> <Link to = {`${url}/Delete/${routine.id}`}>Delete Routine</Link></div>
-        <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
-        <div id = "addactivitytoroutine"> <Link to = {`${url}/AddActivity/${routine.id}`}> Add Activity To Routine</Link></div>
+        <div id = "edit-routine"> <a href = "#" onClick={() => setEditRoutineId(routine.id)}>Edit Routine</a></div>
+        <div id = "addactivitytoroutine"> <a href = "#" onClick={() => setAddActivityId(routine.id)}> Add Activity To Routine</a></div>
         </span>
+        <div>
+        
+       </div> 
         </div>
       
       
@@ -72,14 +82,9 @@ return (
          )
     }
     )
+
     }
-    <div>
-       {/* <Switch>
-       <Route path={`${path}/:routineId`}>
-          <DeleteRoutine />
-        </Route>
-       </Switch>  */}
-       </div> 
+   
     <div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
    
      </> 
@@ -88,6 +93,11 @@ return (
     
 export default MyRoutines
 
+{/* <Switch>
+<Route path={`${path}/Edit/:routineId`}>
+   <EditRoutine />
+ </Route>
+</Switch>   */}
 
 
 /* <button id="deletemyroutine"
