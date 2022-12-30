@@ -232,11 +232,11 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         }
     
     
-      export async function editRoutineByRoutineId(routineId, parameters = {}){
+      export async function editRoutineByRoutineId(token, routineId, parameters = {}){
         const {name, goal, isPublic} = parameters
         console.log ("parameters", parameters)
       try{
-      const response = await apiCall(`routines/:${routineId}`, {
+      const response = await apiCall(`routines/${routineId}`, {
         token: token,
         method: "PATCH",
         body: {

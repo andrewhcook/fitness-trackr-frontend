@@ -7,7 +7,7 @@ const CreateRoutine = (props) => {
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
     const [isPublic, setIsPublic] = useState(false)
-    const {token} = props
+    const {token, setCreateRoutineBool} = props
     let history = useHistory();
   
       const handleSetName = (event) => {
@@ -48,7 +48,7 @@ const CreateRoutine = (props) => {
         const data = await addRoutine(token, routine)
        // console.log ("token", token)
         //console.log ("data from addRoutine",data)
-        
+    
          return data
          
         }
@@ -68,7 +68,7 @@ const CreateRoutine = (props) => {
             <>
            <form id="submitRoutine" onSubmit={async (event) => {
            handleSubmit(event);
-           history.push('/MyRoutines')
+           setCreateRoutineBool("")
            }}>
             <div id="addRoutineTitle">
                Create a Routine
@@ -109,8 +109,9 @@ const CreateRoutine = (props) => {
         </span>
       </fieldset>
       
-       <button id="registerButton">Submit</button>
+       <button className="SubmitAddButton">Submit</button>
          </form>
+       <button className="SubmitAddButton" onClick={() => setCreateRoutineBool("")} >Back</button>
 
          </>
         </div>

@@ -80,10 +80,10 @@
 
 #submitRoutine{
     display: flex;
-    padding-bottom: 150px;
+    
     padding-top: 50px;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     
   
 }
@@ -101,6 +101,60 @@
     border-radius: 5px;
 }
 
+#addRoutineTitle{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    background-color:  white;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.SubmitAddButton{
+    background-color: rgb(137, 76, 217);
+    color: white;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#submitEditedRoutine{
+    display: flex;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    flex-direction: column;
+    align-items: left;
+    
+  
+}
+
+#editroutineinputs {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(241, 158, 33);
+    flex-direction: column;
+    justify-content: space-evenly;
+  
+    border-radius: 5px;
+}
+#editRoutineTitle{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    background-color:  white;
+    width: 200px;
+    border-radius: 5px;
+}
+
+
+.SubmitEditButton {
+    background-color: rgb(137, 76, 217);
+    color: white;
+    width: 200px;
+    border-radius: 5px;
+}
 
 
 /* Activities CSS */

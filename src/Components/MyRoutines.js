@@ -4,8 +4,10 @@ import { Switch, Route, Link } from 'react-router-dom'
 import { fetchRoutinesByUsername, getUser } from "../api/Requests.js"
 import EditRoutine from "./EditRoutine.js"
 import AddActivityToRoutine from "./AddActivityToRoutine.js"
-
 import DeleteRoutine from "./DeleteRoutine.js"
+import CreateRoutine from "./CreateRoutine.js"
+
+
 
 const MyRoutines =(props) => {
 
@@ -16,6 +18,8 @@ console.log ("path", path, "url", url)
 const [myroutines, setMyRoutines] = useState([]);
 const [editRoutineId, setEditRoutineId] = useState ();
 const [addActivityId, setAddActivityId] = useState ();
+const [deleteRoutineId, setDeleteRoutineId] = useState ();
+const [createRoutineBool, setCreateRoutineBool] = useState ();
 
 const { token } = props
 //const navigate = useNavigate()
@@ -35,7 +39,7 @@ useEffect(() => {
       }
 }
 getRoutinesByUsername();
-}, [])
+}, [editRoutineId, deleteRoutineId, createRoutineBool],)
 
 console.log ("myRoutines", myroutines)
 
@@ -45,9 +49,8 @@ return (
 <div id= "myroutine-title">My Routines</div>
 </div>
 <div id= "myroutine-options">
-
-{/* <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
-<div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div> */}
+<div id = "create-routine"> <a href = "#" onClick={() => setCreateRoutineBool(true)}>Create Routine</a></div>
+{createRoutineBool && <CreateRoutine token = {token} setCreateRoutineBool = {setCreateRoutineBool} />}
 </div>
 
 
@@ -63,11 +66,12 @@ return (
         <div> Name: {routine.name}</div>
         <div> Goal: {routine.goal}</div>
         <div> Activities: {routine.activities}</div>
-        {editRoutineId === routine.id && <EditRoutine routine = {routine} />}
-        {addActivityId === routine.id && <AddActivityToRoutine routine = {routine} />}
+        {deleteRoutineId === routine.id && <DeleteRoutine routine = {routine} token = {token} setDeleteRoutineId = {setDeleteRoutineId} />}
+        {editRoutineId === routine.id && <EditRoutine routine = {routine} token = {token} setEditRoutineId = {setEditRoutineId} />}
+        {addActivityId === routine.id && <AddActivityToRoutine routine = {routine} token = {token} setAddActivityId = {setAddActivityId} />}
         </div> 
         <span id="deleteeditdiv">
-        <div id = "delete-routine"> <Link to = {`${url}/Delete/${routine.id}`}>Delete Routine</Link></div>
+        <div id = "delete-routine"> <a href = "#" onClick={() => setDeleteRoutineId(routine.id)}>Delete Routine</a></div>
         <div id = "edit-routine"> <a href = "#" onClick={() => setEditRoutineId(routine.id)}>Edit Routine</a></div>
         <div id = "addactivitytoroutine"> <a href = "#" onClick={() => setAddActivityId(routine.id)}> Add Activity To Routine</a></div>
         </span>
@@ -85,7 +89,7 @@ return (
 
     }
    
-    <div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
+   
    
      </> 
 )};
@@ -98,48 +102,7 @@ export default MyRoutines
    <EditRoutine />
  </Route>
 </Switch>   */}
+{/* <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
+<div id = "delete-routine"> <Link to = "/MyRoutines/Delete">Delete Routine</Link></div> */}
 
 
-/* <button id="deletemyroutine"
-        onClick={()=> handleDeleteClick(routine.id)}> DELETE ROUTINE</button> */
-        /* <button id="editmyroutine" 
-        onClick={()=> handleEditClick(post)}> EDIT ROUTINE</button> */
-// import React from 'react'
-// import {  useRouteMatch } from 'react-router';
-// import { 
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
-
-// import Subject from './Subject';
-
-
-// export default function Courses() {    
-//   const { path, url } = useRouteMatch();     
-
-
-//     return (     
-//     <div>
-//       <h3>Select the subject</h3>
-//       <ul>
-//         <li>
-//           <Link to={`${url}/javascript`}>Javascript</Link>
-//         </li>
-//         <li>
-//           <Link to={`${url}/react`}>React</Link>
-//         </li>
-//         <li>
-//           <Link to={`${url}/typescript`}>Typecscript</Link>
-//         </li>
-//       </ul>
-
-//       <Switch>      
-//         <Route path={`${path}/:subject`}>
-//           <Subject />
-//         </Route>
-//     </Switch>
-//     </div>    
-  
-//     );    
-//   }
