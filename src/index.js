@@ -38,6 +38,9 @@ const App = () => {
           <Route exact path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
           
   </div>
+  <div id = "footer">
+    <p>Keep up the good work!</p>
+  </div>
   </div>
   </BrowserRouter>
   )
