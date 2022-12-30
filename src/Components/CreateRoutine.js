@@ -1,5 +1,6 @@
 import React, { useState }from "react";
 import {addRoutine} from '../api/Requests.js'
+import { useHistory } from 'react-router-dom'
 
 
 const CreateRoutine = (props) => {
@@ -7,20 +8,8 @@ const CreateRoutine = (props) => {
     const [goal, setGoal] = useState("")
     const [isPublic, setIsPublic] = useState(false)
     const {token} = props
-
-    const newRoutine = async () => {
-        try {
-              
-            const routine = await addRoutine(token, username);
-            console.log ("routines useEffect MyRoutines", routines)
-            setMyRoutines(routines);
-           }
-      
-        catch (error) {
-          console.error(error);
-            }
-      }
-
+    let history = useHistory();
+  
       const handleSetName = (event) => {
         event.preventDefault();
         const inputElement = event.target;
@@ -41,7 +30,7 @@ const CreateRoutine = (props) => {
           const isChecked = document.getElementById('#enterpublic')
           const inputElement = event.target;
           const newValue = inputElement.value;
-          console.log ("checkValue",newValue)
+          //console.log ("checkValue",newValue)
           if (newValue === "on"){
             setIsPublic(true);
           }
@@ -57,16 +46,20 @@ const CreateRoutine = (props) => {
         
         try{
         const data = await addRoutine(token, routine)
-        console.log ("token", token)
-        console.log ("data from addRoutine",data)
-        return data
+       // console.log ("token", token)
+        //console.log ("data from addRoutine",data)
+        
+         return data
+         
         }
         catch (error) {
         console.log (error)
         }
+       
         }
-
-        console.log("isPublic",isPublic)
+        
+          
+      //  console.log("isPublic",isPublic)
 
       return (
         <div id="addroutincontainer">
@@ -74,8 +67,9 @@ const CreateRoutine = (props) => {
 
             <>
            <form id="submitRoutine" onSubmit={async (event) => {
-           handleSubmit(event)
-            }}>
+           handleSubmit(event);
+           history.push('/MyRoutines')
+           }}>
             <div id="addRoutineTitle">
                Create a Routine
            </div>
@@ -113,11 +107,7 @@ const CreateRoutine = (props) => {
         onChange={handleSetIsPublic}
         />
         </span>
-
-
-
-
-     </fieldset>
+      </fieldset>
       
        <button id="registerButton">Submit</button>
          </form>
