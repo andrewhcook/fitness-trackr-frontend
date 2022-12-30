@@ -30,9 +30,9 @@ const App = () => {
           <Route path = "/LoginRegister"><LoginRegister setToken = {setToken}></LoginRegister></Route>
           <Route path = "/Routines"> <Routines ></Routines></Route>
           <Route path = "/Activities"> <Activities token = {token}></Activities></Route>
-          <Route path = "/MyRoutines/Create"> <CreateRoutine token = {token} ></CreateRoutine></Route>
-          <Route path = "/MyRoutines/Edit"> <EditRoutine token = {token} ></EditRoutine></Route>
-          <Route path = "/MyRoutines/Delete"> <DeleteRoutine token = {token} ></DeleteRoutine></Route>
+          {/* <Route path = "/MyRoutines/Create"> <CreateRoutine token = {token} ></CreateRoutine></Route>
+          <Route path = "/MyRoutines/Edit"> <EditRoutine token = {token} ></EditRoutine></Route> */}
+          <Route path = "/MyRoutines/:routineId"> <DeleteRoutine token = {token} ></DeleteRoutine></Route>
           <Route exact path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
           
   </div>
