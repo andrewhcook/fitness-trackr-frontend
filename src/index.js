@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import { fetchRoutines, fetchUser} from './api/Requests';
-import {Home, LoginRegister, Routines, Activities, MyRoutines, Logout, CreateRoutine, EditRoutine, DeleteRoutine} from './Components'
+import {Home, LoginRegister, Routines, Activities, 
+  MyRoutines, Logout, CreateRoutine, EditRoutine, DeleteRoutine, AddActivityToRoutine} from './Components'
 
 const App = () => {
   
@@ -32,6 +33,7 @@ const App = () => {
           <Route path = "/Activities"> <Activities token = {token}></Activities></Route>
           <Route path = "/MyRoutines/Create"> <CreateRoutine token = {token} ></CreateRoutine></Route>
           <Route path = "/MyRoutines/Edit"> <EditRoutine token = {token} ></EditRoutine></Route>
+          <Route path = "/MyRoutines/AddActivityToRoutine/:routineId"> <AddActivityToRoutine token = {token} ></AddActivityToRoutine></Route>
           <Route path = "/MyRoutines/Delete/:routineId"> <DeleteRoutine token = {token} ></DeleteRoutine></Route>
           <Route exact path = "/MyRoutines"> <MyRoutines token = {token} ></MyRoutines></Route>
           

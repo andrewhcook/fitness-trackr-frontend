@@ -7,3 +7,4 @@ export {default as Logout} from "./Logout";
 export {default as CreateRoutine} from "./CreateRoutine";
 export {default as EditRoutine} from "./EditRoutine";
 export {default as DeleteRoutine} from "./DeleteRoutine";
+export {default as AddActivityToRoutine} from "./AddActivityToRoutine";

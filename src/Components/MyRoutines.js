@@ -57,10 +57,12 @@ return (
         <div id="myroutineinnercard">
         <div> Name: {routine.name}</div>
         <div> Goal: {routine.goal}</div>
+        <div> Activities: {routine.activities}</div>
         </div> 
         <span id="deleteeditdiv">
         <div id = "delete-routine"> <Link to = {`${url}/Delete/${routine.id}`}>Delete Routine</Link></div>
         <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
+        <div id = "addactivitytoroutine"> <Link to = {`${url}/AddActivity/${routine.id}`}> Add Activity To Routine</Link></div>
         </span>
         </div>
       
@@ -79,6 +81,7 @@ return (
        </Switch>  */}
        </div> 
     <div id = "create-routine"> <Link to = "/MyRoutines/Create">Create New Routine</Link></div>
+   
      </> 
 )};
     
