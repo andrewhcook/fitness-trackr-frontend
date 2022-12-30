@@ -61,7 +61,7 @@ return (
         <div> Goal: {routine.goal}</div>
         </div> 
         <span id="deleteeditdiv">
-        <div id = "delete-routine"> <Link to = {`${url}/${routine.id}`}>Delete Routine</Link></div>
+        <div id = "delete-routine"> <Link to = {`${url}/Delete/${routine.id}`}>Delete Routine</Link></div>
         <div id = "edit-routine"> <Link to = "/MyRoutines/Edit">Edit Routine</Link></div>
         </span>
         </div>

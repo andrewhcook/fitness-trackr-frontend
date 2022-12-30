@@ -145,8 +145,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
             }
           });
         
-        const data = await response.json();
-        return data;
+       
+        return response;
       }
         catch(error) {
           console.error ("There was an error in addActivity apiCall")
@@ -167,8 +167,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
           }
           });
         
-        const data = await response.json();
-        return data;
+       
+        return response;
         
         } catch(error) {
           console.error ("There was an error in editActivity apiCall")
@@ -182,8 +182,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         try{
           const result = await apiCall(`activities/:${activityId}/routines`, {token:token, method:"GET"});
             
-          const data= await response.json()
-              return data;
+          
+              return response;
           } catch(error) {
             console.error( "There was an error in fetchRoutinesByActivity apiCall")
           }
@@ -222,8 +222,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
             }
           });
         
-        const data = await response.json();
-        return data;
+        
+        return response;
       }
         catch(error) {
           console.error ("There was an error in addRoutine apiCall")
@@ -246,8 +246,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         }
         });
       
-      const data = await response.json();
-      return data;
+      
+      return response;
       
       } catch(error) {
         console.error ("There was an error in editRoutineByRoutineId apiCall")
@@ -264,8 +264,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
           method: "DELETE",
           });
         
-    const data = await response.json();
-        return data;
+   
+        return response;
         
       }
         catch(error) {
@@ -291,8 +291,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
               }
             });
           
-          const data = await response.json();
-          return data;
+         
+          return response;
         }
           catch(error) {
             console.error ("There was an error in addActivityToRoutine apiCall")
@@ -313,8 +313,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
           }
           });
         
-        const data = await response.json();
-        return data;
+        
+        return response;
         
         } catch(error) {
           console.error ("There was an error in editRoutineActivityByRoutineActivityId apiCall")
@@ -331,8 +331,8 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
             method: "DELETE",
             });
           
-      const data = await response.json();
-          return data;
+      
+          return response;
           
         }
           catch(error) {
