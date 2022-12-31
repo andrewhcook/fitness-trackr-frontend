@@ -11,21 +11,21 @@ const Activities = (props) => {
     useEffect(()=> {
         const loadActivities = async() => {
             const newActivities = await getActivities();
-            console.log(newActivities);
          setActivities(newActivities);}
         loadActivities();    
             
     }, [])
     return (
-       <> <div id = "activity-listings">{ activities.map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
-       {token ? <div><Form token = {token}></Form> </div>: null}
+       <>
+        {token ? <div><Form token = {token}></Form> </div>: null}
+        <div id = "activity-listings">{ activities.map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
+      
        </>
     )
 }
 
 const ActivityList = (props) => {
     const activity = props.activity;
-    console.log(props.activity);
     return (<div id = "activity-listing">
     <div id = "activity-name"> Activity Name: {activity.name}</div>
     <div id = "activity-description"> Description: {activity.description}</div>
@@ -51,7 +51,7 @@ const Form = (props) => {
        
         onSubmitHandler(event);
         }}>
-        <h1>Create Activity Form</h1>
+        <h1>Create Activity</h1>
 
         <div className="field">
             <label>Activity Title</label>

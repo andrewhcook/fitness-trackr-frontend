@@ -12,7 +12,7 @@ const Listing = (props) => {
 
 const ActivityList = (props) => {
     const activity = props.activity;
-    return (<div id = "activity-listing">
+    return (<div id = "activity-listing-in-routines">
     <div id = "activity-name"> Activity Name: {activity.name}</div>
     <div id = "activity-description"> Description: {activity.description}</div>
     <div id = "activity-count"> Count: {activity.count}</div>
