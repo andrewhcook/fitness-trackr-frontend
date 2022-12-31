@@ -49,7 +49,7 @@ return (
 <div id= "myroutine-title">My Routines</div>
 </div>
 <div id= "myroutine-options">
-<div id = "create-routine"> <a href = "#" onClick={() => setCreateRoutineBool(true)}>Create Routine</a></div>
+<button id = "create-routine-button" onClick={() => setCreateRoutineBool(true)}>Create Routine</button>
 {createRoutineBool && <CreateRoutine token = {token} setCreateRoutineBool = {setCreateRoutineBool} />}
 </div>
 
@@ -82,9 +82,12 @@ return (
         {addActivityId === routine.id && <AddActivityToRoutine routine = {routine} token = {token} setAddActivityId = {setAddActivityId} />}
         </div> 
         <span id="deleteeditdiv">
-        <div id = "delete-routine"> <a href = "#" onClick={() => setDeleteRoutineId(routine.id)}>Delete Routine</a></div>
-        <div id = "edit-routine"> <a href = "#" onClick={() => setEditRoutineId(routine.id)}>Edit Routine</a></div>
-        <div id = "addactivitytoroutine"> <a href = "#" onClick={() => setAddActivityId(routine.id)}> Add Activity To Routine</a></div>
+       
+        <div id = "delete-routine"> <button className= "modifybuttons" onClick={() => setDeleteRoutineId(routine.id)}>Delete Routine</button></div>
+       
+        <div id = "edit-routine"> <button className= "modifybuttons" onClick={() => setEditRoutineId(routine.id)}>Edit Routine</button></div>
+        
+        <div id = "addactivitytoroutine"> <button className= "modifybuttons" onClick={() => setAddActivityId(routine.id)}> Add Activity To Routine</button></div>
         </span>
         <div>
         
