@@ -300,11 +300,11 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
       
           }
     
-        export async function editRoutineActivityByRoutineActivityId (routineActivityId, parameters = {}){
+        export async function editRoutineActivityByRoutineActivityId (token, routineActivityId, parameters = {}){
           const {count, duration} = parameters
-          console.log ("parameters", parameters)
+          console.log ("parametersnow", parameters, routineActivityId)
         try{
-        const response = await apiCall(`routines_activities/:${routineActivityId}`, {
+        const response = await apiCall(`routine_activities/${routineActivityId}`, {
           token: token,
           method: "PATCH",
           body: {
@@ -326,7 +326,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         
         
           try{
-            const response = await apiCall(`routines/:${routineActivityId}`, {
+            const response = await apiCall(`routines/${routineActivityId}`, {
             token: token,
             method: "DELETE",
             });

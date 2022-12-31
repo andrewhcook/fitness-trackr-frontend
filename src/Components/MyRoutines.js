@@ -6,6 +6,7 @@ import EditRoutine from "./EditRoutine.js"
 import AddActivityToRoutine from "./AddActivityToRoutine.js"
 import DeleteRoutine from "./DeleteRoutine.js"
 import CreateRoutine from "./CreateRoutine.js"
+import EditRoutineActivity from "./EditRoutineActivity.js"
 
 
 
@@ -20,6 +21,9 @@ const [editRoutineId, setEditRoutineId] = useState ();
 const [addActivityId, setAddActivityId] = useState ();
 const [deleteRoutineId, setDeleteRoutineId] = useState ();
 const [createRoutineBool, setCreateRoutineBool] = useState ();
+const [deleteRoutineActivityId, setDeleteRoutineActivityId] = useState ();
+const [editRoutineActivityId, setEditRoutineActivityId] = useState ();
+
 
 const { token } = props
 //const navigate = useNavigate()
@@ -39,7 +43,8 @@ useEffect(() => {
       }
 }
 getRoutinesByUsername();
-}, [editRoutineId, deleteRoutineId, createRoutineBool, addActivityId],)
+}, [editRoutineId, deleteRoutineId, createRoutineBool, addActivityId, editRoutineActivityId, 
+  deleteRoutineActivityId],)
 
 console.log ("myRoutines", myroutines)
 
@@ -75,6 +80,18 @@ return (
            <div>   Count: {activity.count} </div>
            <div>   Duration: {activity.duration} </div>
            <div>   Description: {activity.description} </div>
+
+        {deleteRoutineActivityId === activity.id && <DeleteRoutineActivity activity = {activity} token = {token} setDeleteRoutineActivityId = {setDeleteRoutineActivityId} />}
+        {editRoutineActivityId === activity.id && <EditRoutineActivity activity = {activity} token = {token} setEditRoutineActivityId = {setEditRoutineActivityId} />}
+
+           <span id="deleteeditradiv">
+       
+       <div id = "delete-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setDeleteRoutineActivityId(activity.id)}>Delete Routine Activity</button></div>
+      
+       <div id = "edit-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setEditRoutineActivityId(activity.id)}>Edit Routine Activity</button></div>
+       
+      
+       </span>
            </div>
            </div>
            )

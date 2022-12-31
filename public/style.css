@@ -83,6 +83,13 @@
     flex-direction: row;
     justify-content:space-around;
     }
+
+#deleteeditradiv{
+    display:flex;
+    flex-direction: row;
+    justify-content:right;
+    
+}
    
 #routineactivitydiv {
     display: flex;
@@ -125,6 +132,21 @@
   color:darkblue;
   text-align: center;
   font-weight: bold;
+}
+
+.ramodifyrabuttons{
+    display: block;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: lightgrey;
+  padding: 5px 10px;
+  font-size: 10px;
+  color:darkblue;
+  text-align: center;
+  font-weight: bold;
+
+
 }
 
 #submitRoutine{
