@@ -87,12 +87,16 @@
 #routineactivitydiv {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
+    
     margin-left: 75px;
     width: 300 px;
-    border: 2px solid black
-    
- 
+    border: 2px solid black;
+    border-radius: 5px;
+    }
 
+    #innerroutineactivitydiv{
+        padding: 10px;
     }
 
 /* Create Routine CSS */

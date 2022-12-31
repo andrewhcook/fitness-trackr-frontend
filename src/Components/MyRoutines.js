@@ -63,17 +63,19 @@ return (
             
         <div id="myroutinecard">  
         <div id="myroutineinnercard">
-        <div> Name: {routine.name}</div>
+        <div> Routine Name: {routine.name}</div>
         <div> Goal: {routine.goal}</div>
         <div> Activities: </div>
         {routine.activities.map((activity) =>{
           return (
            <div id= "routineactivitydiv" key = {activity.id}>
-           <div>   Name: {activity.name} </div>
+           <div id= "innerroutineactivitydiv">
+           <div>   Activity Name: {activity.name} </div>
            <div>   Id: {activity.id} </div>
            <div>   Count: {activity.count} </div>
            <div>   Duration: {activity.duration} </div>
            <div>   Description: {activity.description} </div>
+           </div>
            </div>
            )
           })}
