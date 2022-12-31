@@ -280,7 +280,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
           console.log ("parameters addRoutine apiCall", parameters)
           
           try{
-          const response = await apiCall(`routines/:${routineId}/activities`, {
+          const response = await apiCall(`routines/${routineId}/activities`, {
             token: token,
             method: "POST",
             body: 

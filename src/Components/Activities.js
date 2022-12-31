@@ -28,6 +28,7 @@ const ActivityList = (props) => {
     return (<div id = "activity-listing">
     <div id = "activity-name"> Activity Name: {activity.name}</div>
     <div id = "activity-description"> Description: {activity.description}</div>
+    <div id = "activity-id"> Activity ID: {activity.id}</div>
     </div>)
 }
 

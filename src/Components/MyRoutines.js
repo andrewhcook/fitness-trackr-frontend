@@ -39,7 +39,7 @@ useEffect(() => {
       }
 }
 getRoutinesByUsername();
-}, [editRoutineId, deleteRoutineId, createRoutineBool],)
+}, [editRoutineId, deleteRoutineId, createRoutineBool, addActivityId],)
 
 console.log ("myRoutines", myroutines)
 
@@ -65,7 +65,18 @@ return (
         <div id="myroutineinnercard">
         <div> Name: {routine.name}</div>
         <div> Goal: {routine.goal}</div>
-        <div> Activities: {routine.activities}</div>
+        <div> Activities: </div>
+        {routine.activities.map((activity) =>{
+          return (
+           <div id= "routineactivitydiv" key = {activity.id}>
+           <div>   Name: {activity.name} </div>
+           <div>   Id: {activity.id} </div>
+           <div>   Count: {activity.count} </div>
+           <div>   Duration: {activity.duration} </div>
+           <div>   Description: {activity.description} </div>
+           </div>
+           )
+          })}
         {deleteRoutineId === routine.id && <DeleteRoutine routine = {routine} token = {token} setDeleteRoutineId = {setDeleteRoutineId} />}
         {editRoutineId === routine.id && <EditRoutine routine = {routine} token = {token} setEditRoutineId = {setEditRoutineId} />}
         {addActivityId === routine.id && <AddActivityToRoutine routine = {routine} token = {token} setAddActivityId = {setAddActivityId} />}

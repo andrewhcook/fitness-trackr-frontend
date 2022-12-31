@@ -1,6 +1,6 @@
 import React, { useState }from "react";
 import {addRoutine} from '../api/Requests.js'
-import { useHistory } from 'react-router-dom'
+
 
 
 const CreateRoutine = (props) => {
@@ -8,8 +8,7 @@ const CreateRoutine = (props) => {
     const [goal, setGoal] = useState("")
     const [isPublic, setIsPublic] = useState(false)
     const {token, setCreateRoutineBool} = props
-    let history = useHistory();
-  
+   
       const handleSetName = (event) => {
         event.preventDefault();
         const inputElement = event.target;

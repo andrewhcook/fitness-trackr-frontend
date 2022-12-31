@@ -61,19 +61,36 @@
 #myroutine-options{
     font-size: x-large;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
     border: 4 px solid black;
     
 }
 
 #myroutineinnercard{
-    border: 2px solid black;
+    border: 6px solid darkblue;
+    border-radius: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+  
 
 }
 #deleteeditdiv{
     display:flex;
     flex-direction: row;
     justify-content:space-around;
+    }
+   
+#routineactivitydiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 75px;
+    width: 300 px;
+    border: 2px solid black
+    
+ 
+
     }
 
 /* Create Routine CSS */
@@ -125,6 +142,37 @@
     align-items: left;
     
   
+}
+
+#addActivityTitle{
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    background-color:  white;
+    width: 200px;
+    border-radius: 5px;
+}
+
+#submitAddActivity{
+    display: flex;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    flex-direction: column;
+    align-items: left;
+
+}
+#addactivityinputs{
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(241, 158, 33);
+    flex-direction: column;
+    justify-content: space-evenly;
+  
+    border-radius: 5px;
+
 }
 
 #editroutineinputs {
