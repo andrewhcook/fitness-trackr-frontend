@@ -16,7 +16,7 @@ const App = () => {
 
 <div id = "container">
     <div id = "nav-bar"> 
-    <Link to = "/Home">Home</Link>
+    {/* <Link to = "/Home">Home</Link> */}
     <Link to = "/Routines">Routines</Link>
     
     <Link to = "/Activities">Activities</Link>
@@ -25,9 +25,12 @@ const App = () => {
     </div>
     <div id = "main-section">
           
-          <Route path = "/Home">
+         {/*getting rid of Home*/}
+          {/* <Route path = "/Home">
             {token ? <> <Home></Home> </> : null }
-          </Route>
+          </Route> */}
+
+
           <Route path = "/LoginRegister"><LoginRegister setToken = {setToken}></LoginRegister></Route>
           <Route path = "/Routines"> <Routines token = {token}></Routines></Route>
           <Route path = "/Activities"> <Activities token = {token}></Activities></Route>

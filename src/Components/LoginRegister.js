@@ -15,6 +15,9 @@ const LoginRegister = (props) => {
         
         setToken(token);
         window.localStorage.setItem('token', token);
+
+        setUsername("");
+        setPassword("");
     }
 
     const otherOnSubmitHandler = async (event) => {
@@ -24,6 +27,9 @@ const LoginRegister = (props) => {
       
          setToken(token);
          window.localStorage.setItem('token', token);
+
+         setLoginUsername("");
+         setLoginPassword("");
      }
 
     return (<><form className="login-form" onSubmit={onSubmitHandler}>
