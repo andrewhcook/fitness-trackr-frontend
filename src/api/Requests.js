@@ -326,7 +326,7 @@ export const apiCall = async (endpoint, defaultOptions= {}) => {
         
         
           try{
-            const response = await apiCall(`routines/${routineActivityId}`, {
+            const response = await apiCall(`routine_activities/${routineActivityId}`, {
             token: token,
             method: "DELETE",
             });

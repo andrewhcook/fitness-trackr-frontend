@@ -1,6 +1,5 @@
 import React from "react";
-// import {useParams} from 'react-router'
-import { useHistory } from 'react-router-dom'
+
 import { deleteRoutineByRoutineId } from "../api/Requests.js"
 
 
@@ -8,8 +7,7 @@ import { deleteRoutineByRoutineId } from "../api/Requests.js"
 const DeleteRoutine = (props) => {
    const { token, setDeleteRoutineId, routine} = props
 
-   let history = useHistory();
-
+   
     // const {routineId} = useParams();
   //  console.log ("routineId",routineId)
    
@@ -38,7 +36,7 @@ const DeleteRoutine = (props) => {
         }
         return (
             <>
-            <h1>THIS POST HAS BEEN DELETED</h1>
+            <h1>THIS ROUTINE HAS BEEN DELETED</h1>
            
             
             </>

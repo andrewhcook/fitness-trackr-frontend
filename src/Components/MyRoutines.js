@@ -7,6 +7,9 @@ import AddActivityToRoutine from "./AddActivityToRoutine.js"
 import DeleteRoutine from "./DeleteRoutine.js"
 import CreateRoutine from "./CreateRoutine.js"
 import EditRoutineActivity from "./EditRoutineActivity.js"
+import DeleteRoutineActivity from "./DeleteRoutineActivity.js"
+
+
 
 
 
@@ -43,8 +46,7 @@ useEffect(() => {
       }
 }
 getRoutinesByUsername();
-}, [editRoutineId, deleteRoutineId, createRoutineBool, addActivityId, editRoutineActivityId, 
-  deleteRoutineActivityId],)
+}, [editRoutineId, deleteRoutineId, createRoutineBool, addActivityId, editRoutineActivityId, deleteRoutineActivityId],)
 
 console.log ("myRoutines", myroutines)
 
@@ -86,9 +88,9 @@ return (
 
            <span id="deleteeditradiv">
        
-       <div id = "delete-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setDeleteRoutineActivityId(activity.id)}>Delete Routine Activity</button></div>
+       <div id = "delete-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setDeleteRoutineActivityId(activity.id)}>Delete This Routine-Activity</button></div>
       
-       <div id = "edit-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setEditRoutineActivityId(activity.id)}>Edit Routine Activity</button></div>
+       <div id = "edit-routine-activity"> <button className= "ramodifyrabuttons" onClick={() => setEditRoutineActivityId(activity.id)}>Edit This Routine-Activity</button></div>
        
       
        </span>
@@ -102,11 +104,11 @@ return (
         </div> 
         <span id="deleteeditdiv">
        
-        <div id = "delete-routine"> <button className= "modifybuttons" onClick={() => setDeleteRoutineId(routine.id)}>Delete Routine</button></div>
+        <div id = "delete-routine"> <button className= "modifybuttons" onClick={() => setDeleteRoutineId(routine.id)}>Delete This Routine</button></div>
        
-        <div id = "edit-routine"> <button className= "modifybuttons" onClick={() => setEditRoutineId(routine.id)}>Edit Routine</button></div>
+        <div id = "edit-routine"> <button className= "modifybuttons" onClick={() => setEditRoutineId(routine.id)}>Edit This Routine</button></div>
         
-        <div id = "addactivitytoroutine"> <button className= "modifybuttons" onClick={() => setAddActivityId(routine.id)}> Add Activity To Routine</button></div>
+        <div id = "addactivitytoroutine"> <button className= "modifybuttons" onClick={() => setAddActivityId(routine.id)}> Add Activity To This Routine</button></div>
         </span>
         <div>
         
