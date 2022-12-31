@@ -3,6 +3,7 @@ import { getActivities, addActivity } from "../api/Requests";
 
 
 const Activities = (props) => {
+    if (!props.token) return null
     console.log(props);
     const token = props.token;
     console.log(token);

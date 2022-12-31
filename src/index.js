@@ -29,7 +29,7 @@ const App = () => {
             {token ? <> <Home></Home> </> : null }
           </Route>
           <Route path = "/LoginRegister"><LoginRegister setToken = {setToken}></LoginRegister></Route>
-          <Route path = "/Routines"> <Routines ></Routines></Route>
+          <Route path = "/Routines"> <Routines token = {token}></Routines></Route>
           <Route path = "/Activities"> <Activities token = {token}></Activities></Route>
           {/* <Route path = "/MyRoutines/Create"> <CreateRoutine token = {token} ></CreateRoutine></Route> */}
           {/* <Route path = "/MyRoutines/Edit"> <EditRoutine token = {token} ></EditRoutine></Route> */}

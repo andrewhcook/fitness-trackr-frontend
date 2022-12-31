@@ -20,7 +20,7 @@ const ActivityList = (props) => {
 }
 
 const Routines = (props) => {
-    
+    if (!props.token) return null
     const [routines, setRoutines] = useState([]);
     useEffect(()=> {
         const getRoutines = async () => {
