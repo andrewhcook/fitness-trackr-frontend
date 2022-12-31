@@ -8,30 +8,20 @@
 }
 
 #routine-listings {
-    width: 100%;
-    margin: 10px;
-    display: flex;
+    font-size: xx-large;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border: 4 px solid black;
 }
 
-#routine-listing {
-    width: 18%;
-    margin: 10px;
-    border: 4px solid black;
-    flex-direction: column;
-}
-#routine-name {
-    font-size: 20px;
-}
-
-#routine-goal {
-    margin-left: 20px;
-}
-
-#routine-username {
-    margin-left: 20px;
-}
-#activity-listing{
-    border: 2px solid #a6a6b4
+#routine-listing {border: 6px solid darkblue;
+    border-radius: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin-top: 20px;
+    font-size: large;
 }
 
 
@@ -267,5 +257,36 @@
 /* Activities CSS */
 
 #create-activity-form {
+    border: 6px solid darkblue;
+    border-radius: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin-top: 20px;
+    font-size: large;
+}
+
+#activity-listing-in-routines {
+    
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    
+    margin-left: 75px;
+    width: 300 px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#activity-listing {
+    
+    border: 6px solid darkblue;
+    border-radius: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin-top: 20px;
     font-size: large;
 }
