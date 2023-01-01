@@ -5,6 +5,7 @@ import { fetchRoutines, fetchUser} from './api/Requests';
 import { LoginRegister, Routines, Activities, 
   MyRoutines, Logout, CreateRoutine, EditRoutine, DeleteRoutine, AddActivityToRoutine, Welcome} from './Components'
 
+
 const App = () => {
   
     const [token, setToken] = useState(
@@ -16,6 +17,7 @@ const App = () => {
 
 <div id = "container">
     <div id = "nav-bar"> 
+    <div className= "nav-bar-title">StrangeRoutines</div>
     <Link to = "/Routines">Routines</Link>
     <Link to = "/Activities">Activities</Link>
     { token ? <Link to = "/MyRoutines">My Routines</Link> : null}
