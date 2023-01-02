@@ -40,10 +40,12 @@ const LoginRegister = (props) => {
 
      const handleRegister = () => {
         setRegistered(true);
+        setTimeout(() => {setRegistered(false)}, "2000");
      }
 
      const handleLogin = () => {
-        setLoggedIn(true);
+        setLoggedIn(true)
+        setTimeout(() => {setLoggedIn(false)}, "2000");
      }
 
     return (<><form className="login-form" onSubmit={onSubmitHandler}>
