@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { registerUser, logInUser } from '../api/Requests';
-import LoginMessage from './LoginMessage';
-import RegisterMessage from './RegisterMessage';
+import {LoginMessage, RegisterMessage} from './Messages';
+
 
 const LoginRegister = (props) => {
     const setToken = props.setToken;
