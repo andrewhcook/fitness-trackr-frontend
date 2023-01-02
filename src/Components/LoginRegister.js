@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { registerUser, logInUser } from '../api/Requests';
+import LoginMessage from './LoginMessage';
 import RegisterMessage from './RegisterMessage';
 
 const LoginRegister = (props) => {
     const setToken = props.setToken;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isShown, setIsShown] = useState(false);
+    const [registered, setRegistered] = useState(false);
 
     
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
+
     const onSubmitHandler = async (event) => {
         //console.log("onSubmitHandler() called");
         event.preventDefault();
@@ -35,8 +38,12 @@ const LoginRegister = (props) => {
          setLoginPassword("");
      }
 
-     const handleRegisterLogin = () => {
-        setIsShown(true);
+     const handleRegister = () => {
+        setRegistered(true);
+     }
+
+     const handleLogin = () => {
+        setLoggedIn(true);
      }
 
     return (<><form className="login-form" onSubmit={onSubmitHandler}>
@@ -61,9 +68,9 @@ const LoginRegister = (props) => {
                 required
                 onChange={(event) => { setPassword(event.target.value); } } />
         </div>
-        <button className="submit-form" type="submit" onClick={handleRegisterLogin}>Submit</button>
+        <button className="submit-form" type="submit" onClick={handleRegister}>Submit</button>
         <div>
-            {isShown && <RegisterMessage />}
+            {registered && <RegisterMessage />}
         </div>
 
         {/*register*/}
@@ -92,7 +99,11 @@ const LoginRegister = (props) => {
                     required
                     onChange={(event) => { setLoginPassword(event.target.value); } } />
             </div>
-            <button className="submit-form" type="submit">Submit</button>
+            <button className="submit-form" type="submit" onClick={handleLogin}>Submit</button>
+            <div>
+                {loggedIn && <LoginMessage />}
+            </div>
+
             {/*login*/}
 
 
