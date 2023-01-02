@@ -20,7 +20,6 @@ const ActivityList = (props) => {
 }
 
 const Routines = (props) => {
-    if (!props.token) return null
     const [routines, setRoutines] = useState([]);
     useEffect(()=> {
         const getRoutines = async () => {
@@ -37,7 +36,7 @@ const Routines = (props) => {
 
     //SHOW: ROUTINE NAME, GOAL and CREATOR's USERNAME
     // A LIST OF ACTIVITIES FOR THE ROUTINE, including thier name, description and/or count 
-    return (<><div id = "routine-listings">{routines.map((routine)=> {return <Listing routine = {routine}></Listing>})}</div></>)
+    return (<><div id = "routine-listings">{routines.reverse().map((routine)=> {return <Listing routine = {routine}></Listing>})}</div></>)
 
 }
 
