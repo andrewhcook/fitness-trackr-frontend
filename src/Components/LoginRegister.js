@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { registerUser, logInUser } from '../api/Requests';
+import LoginMessage from './LoginMessage';
+import RegisterMessage from './RegisterMessage';
 
 const LoginRegister = (props) => {
     const setToken = props.setToken;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [registered, setRegistered] = useState(false);
+
     
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
+
     const onSubmitHandler = async (event) => {
         //console.log("onSubmitHandler() called");
         event.preventDefault();
@@ -32,6 +38,14 @@ const LoginRegister = (props) => {
          setLoginPassword("");
      }
 
+     const handleRegister = () => {
+        setRegistered(true);
+     }
+
+     const handleLogin = () => {
+        setLoggedIn(true);
+     }
+
     return (<><form className="login-form" onSubmit={onSubmitHandler}>
         <h1>SignUp Form</h1>
         <div className="field">
@@ -54,7 +68,14 @@ const LoginRegister = (props) => {
                 required
                 onChange={(event) => { setPassword(event.target.value); } } />
         </div>
-        <button className="submit-form" type="submit">Submit</button>
+        <button className="submit-form" type="submit" onClick={handleRegister}>Submit</button>
+        <div>
+            {registered && <RegisterMessage />}
+        </div>
+
+        {/*register*/}
+
+
     </form>
         <form className="login-form" onSubmit={otherOnSubmitHandler}>
             <h1>Login Form</h1>
@@ -78,7 +99,14 @@ const LoginRegister = (props) => {
                     required
                     onChange={(event) => { setLoginPassword(event.target.value); } } />
             </div>
-            <button className="submit-form" type="submit">Submit</button>
+            <button className="submit-form" type="submit" onClick={handleLogin}>Submit</button>
+            <div>
+                {loggedIn && <LoginMessage />}
+            </div>
+
+            {/*login*/}
+
+
         </form></>);
     
     
