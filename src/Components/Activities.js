@@ -3,7 +3,6 @@ import { getActivities, addActivity } from "../api/Requests";
 
 
 const Activities = (props) => {
-    if (!props.token) return null
     console.log(props);
     const token = props.token;
     console.log(token);
@@ -18,7 +17,7 @@ const Activities = (props) => {
     return (
        <>
         {token ? <div><Form token = {token}></Form> </div>: null}
-        <div id = "activity-listings">{ activities.map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
+        <div id = "activity-listings">{ activities.reverse().map((activity)=> {return <ActivityList activity = {activity}></ActivityList>})}</div>
       
        </>
     )
@@ -26,6 +25,7 @@ const Activities = (props) => {
 
 const ActivityList = (props) => {
     const activity = props.activity;
+    console.log(activity);
     return (<div id = "activity-listing">
     <div id = "activity-name"> Activity Name: {activity.name}</div>
     <div id = "activity-description"> Description: {activity.description}</div>
