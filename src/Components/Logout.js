@@ -6,7 +6,7 @@ const Logout = (props) => {
     return <div><button className="logout-button" onClick={()=> {
         window.localStorage.removeItem("token");
         setToken(null);
-        history.push("./LoginRegister.js")
+        history.push("./LoginRegister")
     }}>Logout</button></div>
     
 }
