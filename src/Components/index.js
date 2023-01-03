@@ -1,4 +1,4 @@
-export {default as Welcome } from "./Welcome"
+export {default as Welcome } from "./Home"
 export {default as LoginRegister} from "./LoginRegister";
 export {default as Routines} from "./Routines"
 export {default as Activities} from "./Activities"
