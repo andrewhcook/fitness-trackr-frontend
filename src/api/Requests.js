@@ -1,5 +1,5 @@
 
-const BASEURL = "http://fitnesstrac-kr.herokuapp.com/api";
+const BASEURL = "https://fitnesstrac-kr.herokuapp.com/api";
 
 const makeHeaders = (token) => {
     const headers = {
